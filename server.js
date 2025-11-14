@@ -8,7 +8,6 @@ const taskRoutes=require('./routes/taskRoutes')
 const app=express();
 dbConnection()
 
-import cors from "cors";
 
 app.use(cors({
   origin: "https://daily-task-tracker-react-iota.vercel.app",
