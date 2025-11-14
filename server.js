@@ -8,13 +8,20 @@ const taskRoutes=require('./routes/taskRoutes')
 const app=express();
 dbConnection()
 
+const allowedOrigins = [
+  "https://daily-task-tracker-react-iota.vercel.app",
+  "http://localhost:5173"
+];
 
 app.use(cors({
-  origin: "https://daily-task-tracker-react-iota.vercel.app",
+  origin: allowedOrigins,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true   // only if using cookies/sessions
+  allowedHeaders: ["Content-Type", "Authorization"] 
 }));
+
+// Important: Allow OPTIONS for all routes
+app.options("*", cors());
+
 
 
 app.use(express.json());
