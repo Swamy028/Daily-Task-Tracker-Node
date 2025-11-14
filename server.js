@@ -19,8 +19,8 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"] 
 }));
 
-// Important: Allow OPTIONS for all routes
-app.options("*", cors());
+
+app.options("/", cors());
 
 
 
